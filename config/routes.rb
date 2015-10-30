@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  
+  devise_for :users
+  root to: "content#index"
+
+  resources :content do
+    post '/up-vote' => 'votes#up_vote', as: :up_vote
+    post '/down-vote' => 'votes#down_vote', as: :down_vote
+    post '/delete-vote' => 'votes#delete_vote', as: :delete_vote
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
