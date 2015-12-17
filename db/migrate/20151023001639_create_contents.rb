@@ -5,6 +5,7 @@ class CreateContents < ActiveRecord::Migration
       t.string :blurb
       t.string :author
       t.string :image
+      t.float :rank
 
       t.timestamps null: false
     end
