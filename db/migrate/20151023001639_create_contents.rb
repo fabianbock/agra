@@ -11,8 +11,3 @@ class CreateContents < ActiveRecord::Migration
     end
   end
 end
-
-# <a href='<%= content.url %>'>
-#   <p><%= content.blurb %></p>
-#   <img src='<%= content.image %>'>
-# </a>

@@ -12,6 +12,7 @@
 
 <div class="row">
     <% @pieces.each do |content| %>
+<<<<<<< HEAD
       <%# render partial: 'votes/voter', locals: {vote: Vote.find_or_initialize_by(content: content, user: current_user) } %>
       <%= render partial: 'votes/voter', locals: { content: content } %>
       <div class="media">
@@ -25,6 +26,20 @@
         <%= content.author %>
       </small>
         <%= content.image %>
+=======
+      <%= render partial: 'votes/voter', locals: {vote: Vote.find_or_initialize_by(content: content, user: current_user) } %>
+    <div class="media">
+    <h4>
+      <%= content.title %>
+    </h4>
+    <p>
+      <%= content.blurb %>
+    </p>
+    <small>
+      <%= content.author %>
+    </small>
+      <img src='<%= content.image %>'>
+>>>>>>> master
     <% end %>
     <%= will_paginate @pieces %>
     </div>
