@@ -1,7 +1,6 @@
 <h1>AGRA</h1>
 <p>Your daily content:</p>
 
-
 <div class="pull-right user-info">
   <% if current_user %>
     Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
@@ -13,19 +12,20 @@
 
 <div class="row">
     <% @pieces.each do |content| %>
-      <%= render partial: 'votes/voter', locals: {vote: Vote.find_or_initialize_by(content: content, user: current_user) } %>
-    <div class="media">
-    <h4>
-      <%= content.title %>
-    </h4>
-    <p>
-      <%= content.blurb %>
-    </p>
-    <small>
-      <%= content.author %>
-    </small>
-      <img src='<%= content.image %>'>
+      <%# render partial: 'votes/voter', locals: {vote: Vote.find_or_initialize_by(content: content, user: current_user) } %>
+      <%= render partial: 'votes/voter', locals: { content: content } %>
+      <div class="media">
+      <h4>
+        <%= content.title %>
+      </h4>
+      <p>
+        <%= content.blurb %>
+      </p>
+      <small>
+        <%= content.author %>
+      </small>
+        <%= content.image %>
     <% end %>
-    <%= will_paginate @topics %>
+    <%= will_paginate @pieces %>
     </div>
 </div>

@@ -1,11 +1,5 @@
-<div class="vote-arrows pull-left">
-  <div><%= link_to " ", 
-     content_up_vote_path(vote), 
-     class: up_vote_link_classes(vote.content), method: :post %></div>
-     
-     <div><strong><%= vote.content.points %></strong></div>
-     
-     <div><%= link_to " ", 
-     content_down_vote_path(vote), 
-     class: "glyphicon glyphicon-chevron-down #{vote.persisted? && vote.down_vote? ? 'voted' : '' }", method: :post %></div>
+<div class="pull-left vote-arrows">
+  <div><%= link_to " ", content_up_vote_path(content), class: 'glyphicon glyphicon-chevron-up', method: :post %></div>
+  <div><strong><%= content.points %></strong></div>
+  <div><%= link_to " ", content_down_vote_path(content), class: 'glyphicon glyphicon-chevron-down', method: :post %></div>
 </div>
